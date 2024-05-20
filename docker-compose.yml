@@ -1,0 +1,15 @@
+services:
+  app:
+    image: eslym/simple-caddy
+    build:
+      context: .
+      args:
+        CADDY_VERSION: 2.7
+    ports:
+      - 8888:80
+    environment:
+      CADDY_CONFIG: |
+        :80 {
+          header Content-Type text/plain
+          respond "OK"
+        }
